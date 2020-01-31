@@ -9,15 +9,15 @@ int cardScores[] = {0,1,2,3,4,5,6,7,8,9,10,10,10,10};
 
 int drawCard(void){
 	//Write the function to random the number from 1 to 13 and return that random number.
-	srand(time(0));
-	int score = rand()%12 + 1;
-	return score;
-
+	int card = rand()%12 + 1;
+	return card;
 }
 
 int calScore(int x,int y,int z){
 	//Write the function to calculate the score with is the rightmost digit of summation of the scores from three cards.
+	int score = (x + y + z)%10;
 	//Return the score. 
+	return score;
 }
 
 int findYugiAction(int s){	
@@ -39,11 +39,11 @@ void checkWinner(int p, int y){
 }
 
 int main(){	
+	srand(time(0));
 	int playerScore, yugiScore, playerAction, yugiAction;
 	int playerCards[3] = {drawCard(), drawCard(), 0};
 	int yugiCards[3] = {drawCard(),drawCard(), 0}; 
 	//This line of code is not completed. You need to initialize value of yugiCards[].
-	
 	
 	cout << "---------ORE NO TURN, DRAW!!!------------\n";
 	cout << "Your cards: " << cardNames[playerCards[0]] << " " << cardNames[playerCards[1]] << "\n";
@@ -55,11 +55,12 @@ int main(){
 	}while(playerAction != 1 && playerAction != 2);
 	if(playerAction == 1){
 		//The following lines of code are not completed. Please correct it.
-		/*
+		playerCards[2] = drawCard();
 		cout << "Player draws the 3rd card!!!" << "\n";
-		cout << "Your 3rd card: " << "\n";
-		cout << "Your new score: " << "\n";
-		*/
+		cout << "Your 3rd card: " << cardNames[playerCards[2]] << "\n";
+		playerScore = calScore(playerCards[0],playerCards[1],playerCards[2]);
+		cout << "Your new score: " << playerScore << "\n";
+		
 	}
 	cout << "------------ Turn end -------------------\n\n";
 	
