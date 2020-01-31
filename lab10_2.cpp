@@ -15,8 +15,7 @@ int drawCard(void){
 
 int calScore(int x,int y,int z){
 	//Write the function to calculate the score with is the rightmost digit of summation of the scores from three cards.
-	int score = (x + y + z)%10;
-	//Return the score. 
+	int score = (x + y + z)%10; 
 	return score;
 }
 
@@ -25,7 +24,6 @@ int findYugiAction(int s){
 	else if(s < 6) return 1; // Yugi will definitely draw (1) when current score (s) is less than 6
 	else{
 		// If current score is 6,7,8, Yugi will draw with probability 69% and will stay with probability 31% 
-		// Write conditions here using random number
 		int i = rand()%100+1;
 		if(i<=69) return 1;
 		else return 2;
@@ -33,7 +31,7 @@ int findYugiAction(int s){
 }
 
 void checkWinner(int p, int y){
-	// Write condition for cout in this function
+	
 	cout << "\n---------------------------------\n";
 	if(p==y) cout <<   "|             Draw!!!           |"; // when p is equal to y
 	else if(p>y)cout <<   "|         Player wins!!!        |"; // when p is greater than y
@@ -45,9 +43,8 @@ int main(){
 	srand(time(0));
 	int playerScore, yugiScore, playerAction, yugiAction;
 	int playerCards[3] = {drawCard(), drawCard(), 0};
-	int yugiCards[3] = {drawCard(),drawCard(), 0}; 
-	//This line of code is not completed. You need to initialize value of yugiCards[].
-	
+	int yugiCards[3] = {drawCard(),drawCard(), 0}; //initialize yugi cards
+
 	cout << "---------ORE NO TURN, DRAW!!!------------\n";
 	cout << "Your cards: " << cardNames[playerCards[0]] << " " << cardNames[playerCards[1]] << "\n";
 	playerScore = calScore(cardScores[playerCards[0]],cardScores[playerCards[1]],cardScores[playerCards[2]]);
@@ -57,7 +54,7 @@ int main(){
 		cin >> playerAction;
 	}while(playerAction != 1 && playerAction != 2);
 	if(playerAction == 1){
-		//The following lines of code are not completed. Please correct it.
+		
 		playerCards[2] = drawCard();
 		cout << "Player draws the 3rd card!!!" << "\n";
 		cout << "Your 3rd card: " << cardNames[playerCards[2]] << "\n";
@@ -66,8 +63,6 @@ int main(){
 		
 	}
 	cout << "------------ Turn end -------------------\n\n";
-	
-	//The following lines of code for Yugi's turn are not completed. Please correct it.
 	
 	cout << "---------YUGI'S TURN, DRAW!!!------------\n";
 	cout << "Yugi's cards: " << cardNames[yugiCards[0]] << " " << cardNames[yugiCards[1]]<< "\n";
