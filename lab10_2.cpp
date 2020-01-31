@@ -26,7 +26,9 @@ int findYugiAction(int s){
 	else{
 		// If current score is 6,7,8, Yugi will draw with probability 69% and will stay with probability 31% 
 		// Write conditions here using random number
-		 
+		int i = rand()%100+1;
+		if(i<=69) return 1;
+		else return 2;
 	}
 }
 
@@ -73,8 +75,9 @@ int main(){
 	cout << "Yugi's score: " << yugiScore << "\n";
 	yugiAction = findYugiAction(yugiScore);
 	if(yugiAction == 1){
+		yugiCards[2] = drawCard();
 		cout << "Yugi draws the 3rd card!!!\n";
-		cout << "Yugi's 3rd card: "<<cardNames[yugiCards[2]] << "\n";
+		cout << "Yugi's 3rd card: "<< cardNames[yugiCards[2]] << "\n";
 		yugiScore = calScore(yugiCards[0],yugiCards[1],yugiCards[2]);
 		cout << "Yugi's new score: "<< yugiScore << "\n";
 	}
