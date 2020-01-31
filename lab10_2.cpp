@@ -25,16 +25,17 @@ int findYugiAction(int s){
 	else if(s < 6) return 1; // Yugi will definitely draw (1) when current score (s) is less than 6
 	else{
 		// If current score is 6,7,8, Yugi will draw with probability 69% and will stay with probability 31% 
-		// Write conditions here using random number 
+		// Write conditions here using random number
+		 
 	}
 }
 
 void checkWinner(int p, int y){
 	// Write condition for cout in this function
 	cout << "\n---------------------------------\n";
-	cout <<   "|             Draw!!!           |"; // when p is equal to y
-	cout <<   "|         Player wins!!!        |"; // when p is greater than y
-	cout <<   "|          Yugi wins!!!         |"; // when p is less than y
+	if(p==y) cout <<   "|             Draw!!!           |"; // when p is equal to y
+	else if(p>y)cout <<   "|         Player wins!!!        |"; // when p is greater than y
+	else cout <<   "|          Yugi wins!!!         |"; // when p is less than y
 	cout << "\n---------------------------------\n";
 }
 
@@ -64,21 +65,21 @@ int main(){
 	}
 	cout << "------------ Turn end -------------------\n\n";
 	
-	
 	//The following lines of code for Yugi's turn are not completed. Please correct it.
-	/*
+	
 	cout << "---------YUGI'S TURN, DRAW!!!------------\n";
-	cout << "Yugi's cards: " << "\n";
-	yugiScore = ?????;
+	cout << "Yugi's cards: " << cardNames[yugiCards[0]] << " " << cardNames[yugiCards[1]]<< "\n";
+	yugiScore = calScore(yugiCards[0],yugiCards[1],yugiCards[2]);
 	cout << "Yugi's score: " << yugiScore << "\n";
 	yugiAction = findYugiAction(yugiScore);
 	if(yugiAction == 1){
 		cout << "Yugi draws the 3rd card!!!\n";
-		cout << "Yugi's 3rd card: " << "\n";
-		cout << "Yugi's new score: " << "\n";
+		cout << "Yugi's 3rd card: "<<cardNames[yugiCards[2]] << "\n";
+		yugiScore = calScore(yugiCards[0],yugiCards[1],yugiCards[2]);
+		cout << "Yugi's new score: "<< yugiScore << "\n";
 	}
 	cout << "------------ Turn end -------------------\n";
-	*/
+	
 	
 	checkWinner(playerScore,yugiScore);
 }
