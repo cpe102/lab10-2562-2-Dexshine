@@ -1,6 +1,7 @@
 #include<iostream>
 #include<string>
-
+#include<cstdlib>
+#include<ctime>
 using namespace std;
 
 string cardNames[] = {"","A","2","3","4","5","6","7","8","9","10","J","Q","K"};
@@ -8,6 +9,10 @@ int cardScores[] = {0,1,2,3,4,5,6,7,8,9,10,10,10,10};
 
 int drawCard(void){
 	//Write the function to random the number from 1 to 13 and return that random number.
+	srand(time(0));
+	int score = rand()%12 + 1;
+	return score;
+
 }
 
 int calScore(int x,int y,int z){
@@ -36,7 +41,8 @@ void checkWinner(int p, int y){
 int main(){	
 	int playerScore, yugiScore, playerAction, yugiAction;
 	int playerCards[3] = {drawCard(), drawCard(), 0};
-	int yugiCards[3]; //This line of code is not completed. You need to initialize value of yugiCards[].
+	int yugiCards[3] = {drawCard(),drawCard(), 0}; 
+	//This line of code is not completed. You need to initialize value of yugiCards[].
 	
 	
 	cout << "---------ORE NO TURN, DRAW!!!------------\n";
